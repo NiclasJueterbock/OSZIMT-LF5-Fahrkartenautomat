@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.stream.DoubleStream;
 
 class Fahrkartenautomat {
     public static void main(String[] args) {
@@ -42,8 +43,11 @@ class Fahrkartenautomat {
             System.out.println("Noch zu zahlen: " + String.format("%.2f", nochZuZahlen));
             System.out.print("Eingabe (mind. 5 Cent, höchstens 20 Euro): ");
             eingeworfeneMuenze = tastatur.nextDouble();
+
             //validate input to be 5c, 10c, 20c, 50c, 1€, 2€, 5€, 10€, 20€
-            if (eingeworfeneMuenze == 0.05 || eingeworfeneMuenze == 0.10 || eingeworfeneMuenze == 0.20 || eingeworfeneMuenze == 0.50 || eingeworfeneMuenze == 1 || eingeworfeneMuenze == 2 || eingeworfeneMuenze == 5 || eingeworfeneMuenze == 10 || eingeworfeneMuenze == 20) {
+            double[] validCoins = {0.05, 0.10, 0.20, 0.50, 1, 2, 5, 10, 20};
+            double finalEingeworfeneMuenze = eingeworfeneMuenze;
+            if(DoubleStream.of(validCoins).anyMatch(x -> x == finalEingeworfeneMuenze)) {
                 eingezahlterGesamtbetrag = eingezahlterGesamtbetrag + eingeworfeneMuenze;
             } else {
                 System.out.println(">> Kein gültiges Zahlungsmittel");
