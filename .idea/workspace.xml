@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c55e8b7-b1eb-443c-99a3-fdabe7279595" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fahrkartenautomat.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Fahrkartenautomat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fahrkartenautomat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fahrkartenautomat.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +57,9 @@
       <workItem from="1668423033484" duration="32000" />
       <workItem from="1668423122981" duration="3350000" />
       <workItem from="1668588746476" duration="78000" />
+      <workItem from="1668589738194" duration="29000" />
+      <workItem from="1668593047642" duration="5000" />
+      <workItem from="1668593062912" duration="297000" />
     </task>
     <servers />
   </component>

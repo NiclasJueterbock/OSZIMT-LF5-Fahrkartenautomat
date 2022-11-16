@@ -15,9 +15,21 @@ class Fahrkartenautomat {
         System.out.print("Zu zahlender Betrag (Euro): ");
         zuZahlenderBetrag = tastatur.nextDouble();
 
+        // check if number is positive, if not set to one
+        if (zuZahlenderBetrag < 0) {
+            System.out.println("Fehlerhafte Eingabe - Ticketpreis wird auf 1 Euro gesetzt");
+            zuZahlenderBetrag = 1;
+        }
+
         // Anzahl der Tickets eingeben
         System.out.print("Anzahl der Tickets: ");
         int anzahlTickets = tastatur.nextInt();
+
+        //check if number is 1-10, if not set to 1
+        if (anzahlTickets < 1 || anzahlTickets > 10) {
+            System.out.println("Fehlerhafte Eingabe - Ticketanzahl wird auf 1 gesetzt");
+            anzahlTickets = 1;
+        }
 
         // Gesamtbetrag berechnen
         zuZahlenderBetrag = zuZahlenderBetrag * anzahlTickets;
@@ -28,9 +40,14 @@ class Fahrkartenautomat {
         while (eingezahlterGesamtbetrag < zuZahlenderBetrag) {
             nochZuZahlen = zuZahlenderBetrag - eingezahlterGesamtbetrag;
             System.out.println("Noch zu zahlen: " + String.format("%.2f", nochZuZahlen));
-            System.out.print("Eingabe (mind. 5 Cent, höchstens 2 Euro): ");
+            System.out.print("Eingabe (mind. 5 Cent, höchstens 20 Euro): ");
             eingeworfeneMuenze = tastatur.nextDouble();
-            eingezahlterGesamtbetrag = eingezahlterGesamtbetrag + eingeworfeneMuenze;
+            //validate input to be 5c, 10c, 20c, 50c, 1€, 2€, 5€, 10€, 20€
+            if (eingeworfeneMuenze == 0.05 || eingeworfeneMuenze == 0.10 || eingeworfeneMuenze == 0.20 || eingeworfeneMuenze == 0.50 || eingeworfeneMuenze == 1 || eingeworfeneMuenze == 2 || eingeworfeneMuenze == 5 || eingeworfeneMuenze == 10 || eingeworfeneMuenze == 20) {
+                eingezahlterGesamtbetrag = eingezahlterGesamtbetrag + eingeworfeneMuenze;
+            } else {
+                System.out.println(">> Kein gültiges Zahlungsmittel");
+            }
         }
 
         // Fahrscheinausgabe
@@ -54,34 +71,22 @@ class Fahrkartenautomat {
             System.out.println("wird in folgenden Münzen ausgezahlt:");
 
             while (rueckgabebetrag >= 2.0) { // 2-Euro-Münzen
-                System.out.println("2 Euro");
                 rueckgabebetrag = rueckgabebetrag - 2;
-                System.out.println("rueckgabebetrag = " + rueckgabebetrag);
             }
             while (rueckgabebetrag >= 1.0) { // 1-Euro-Münzen
-                System.out.println("1 Euro");
                 rueckgabebetrag = rueckgabebetrag - 1;
-                System.out.println("rueckgabebetrag = " + rueckgabebetrag);
             }
             while (rueckgabebetrag >= 0.5) { // 50-Cent-Münzen
-                System.out.println("50 Cent");
                 rueckgabebetrag = rueckgabebetrag - 0.5;
-                System.out.println("rueckgabebetrag = " + rueckgabebetrag);
             }
             while (rueckgabebetrag >= 0.2) { // 20-Cent-Münzen
-                System.out.println("20 Cent");
                 rueckgabebetrag = rueckgabebetrag - 0.2;
-                System.out.println("rueckgabebetrag = " + rueckgabebetrag);
             }
             while (rueckgabebetrag >= 0.1) { // 10-Cent-Münzen
-                System.out.println("10 Cent");
                 rueckgabebetrag = rueckgabebetrag - 0.1;
-                System.out.println("rueckgabebetrag = " + rueckgabebetrag);
             }
             while (rueckgabebetrag >= 0.05) { // 5-Cent-Münzen
-                System.out.println("5 Cent");
                 rueckgabebetrag = rueckgabebetrag - 0.05;
-                System.out.println("Rückgabebetrag: " + rueckgabebetrag);
             }
         }
 
